@@ -1,0 +1,53 @@
+#!/bin/bash
+
+session="AudioLink"
+
+java="java -jar"
+file="Server.jar"
+config="config"
+
+screen_options=""
+
+function update_environment() {
+	while getopts "t:f:s:" o; do
+		# shellcheck disable=SC2220
+		case $o in
+			"t") token="$OPTARG"
+				;;
+			"f") file="$OPTARG"
+				;;
+			"s") screen_options="$OPTARG"
+				;;
+			"c") config="$OPTARG"
+				;;
+		esac
+	done
+
+	if [ ! -f "$file" ]; then
+		echo "Unknown file $file"
+		exit 1
+	fi
+}
+
+function _start() {
+	screen $screen_options -mL -c .screenrc -S $session $java $file $config
+}
+
+function _connect() {
+	screen -r -S $session
+}
+
+cmd=$1
+shift
+
+# shellcheck disable=SC2068
+update_environment $@
+
+case $cmd in
+	"start") _start
+		;;
+	"console") _connect
+		;;
+	*) echo "unknown subcommand"; exit
+		;;	
+esac
