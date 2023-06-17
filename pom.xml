@@ -56,7 +56,7 @@
         <dependency>
             <groupId>com.github.MineKing9534</groupId>
             <artifactId>AudioLinkServer</artifactId>
-            <version>9c7cc4b</version>
+            <version>33c6ccb</version>
         </dependency>
 
         <dependency>
