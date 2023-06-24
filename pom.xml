@@ -54,15 +54,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.MineKing9534</groupId>
+            <groupId>com.github.MineKingBot</groupId>
             <artifactId>AudioLinkServer</artifactId>
-            <version>33c6ccb</version>
+            <version>a9bec85</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.MineKing9534</groupId>
             <artifactId>LavaSrc</artifactId>
-            <version>1a7bc4b</version>
+            <version>bc9de60</version>
 
             <exclusions>
                 <exclusion>
